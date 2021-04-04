@@ -56,8 +56,7 @@ This is already a quite good funtion but average chain size is 20 and there are 
 
 #### Fifth
 
-There are fewer empty bucket than in the previous one but the distribution is rather bad: peaks with more than 30 elems in one bucket appear often.
-In can be clearly seen in following graph\n
+There are fewer empty bucket than in the previous one but the distribution is rather bad: peaks with more than 30 elems in one bucket appear often. In can be clearly seen in following graph\n
 <img src="Pictures\HistFunc5.JPG" width="640" height="450px">
 
 <img src="Pictures\GraphFunc5.JPG" width="640" height="450px">
@@ -70,4 +69,4 @@ Both distribution and number of empty buckets are good and this function seems p
 <img src="Pictures\GraphFunc6.JPG" width="640" height="450px">
 
 ### Results
-The 6th hash function turned out to be the most effective since it has the lowest number of buckets without elements and overall distribution is close to normal and the average length of chain is rather small, which means hash table will respond faster to queries.
+#### The 6th hash function turned out to be the most effective since it has the lowest number of buckets without elements and overall distribution is close to normal and the average length of chain is rather small, which means hash table will respond faster to queries.
