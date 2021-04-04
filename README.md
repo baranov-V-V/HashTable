@@ -34,39 +34,39 @@ Second graphs will be more representative for efficient hash funtions, so i will
 
 #### First
 
-~~No comments~~ This function is really bad\
+This function is really bad ~~no comments~~.\
 <img src="Pictures\GraphFunc1.JPG" width="640" height="450px">
 
 #### Second Function
 
-A little better than previous one, but buckets with no. 98-120 are only used so it is not very useful in hash table\
+A little better than previous one, but buckets with no. 98-120 are only used so it is not very useful in hash table.\
 <img src="Pictures\GraphFunc2.JPG" width="640" height="450px">
 
 #### Third
 
-Now buckets with no. 2-15 are mostly used so it is as useless as second one\
+Now buckets with no. 2-15 are mostly used so it is as useless as second one.\
 <img src="Pictures\GraphFunc3.JPG" width="640" height="450px">
 
 #### Fourth
 
-This is already a quite good funtion but average chain size is 20 and there are still many empty buckets\
+This is already a quite good funtion but average chain size is 20 and there are still many empty buckets.\
 <img src="Pictures\HistFunc4.JPG" width="640" height="450px">
 
 <img src="Pictures\GraphFunc4.JPG" width="640" height="450px">
 
 #### Fifth
 
-There are fewer empty bucket than in the previous one but the distribution is rather bad: peaks with more than 30 elems in one bucket appear often. In can be clearly seen in following graph\
+There are fewer empty bucket than in the previous one but the distribution is rather bad: peaks with more than 30 elems in one bucket appear often. In can be clearly seen in following graph:\
 <img src="Pictures\HistFunc5.JPG" width="640" height="450px">
 
 <img src="Pictures\GraphFunc5.JPG" width="640" height="450px">
 
 #### Sixth
 
-Both distribution and number of empty buckets are good and this function seems perfect for furher researches\
+Both distribution and number of empty buckets are good and this function seems perfect for furher researches.\
 <img src="Pictures\HistFunc6.JPG" width="640" height="450px">
 
 <img src="Pictures\GraphFunc6.JPG" width="640" height="450px">
 
 ### Results
-#### The 6th hash function turned out to be the most effective since it has the lowest number of buckets without elements and overall distribution is close to normal and the average length of chain is rather small, which means hash table will respond faster to queries.
+The 6th hash function turned out to be the most effective since it has the lowest number of buckets without elements and overall distribution is close to normal and the average length of chain is rather small, which means hash table will respond faster to queries.
