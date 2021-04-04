@@ -26,7 +26,7 @@ Testing results will be demonstrated in two types of graphs:
 Second graphs will be more representative for efficient hash funtions, so i will use them in hash funcions from 4 to 6. 
 
 * [First](#first)
-* [Second Function](#second function)
+* [Second](#second)
 * [Third](#third)
 * [Fourth](#fourth)
 * [Fifth](#fifth)
@@ -47,13 +47,19 @@ Second graphs will be more representative for efficient hash funtions, so i will
 
 #### Fourth
 
+<img src="Pictures\HistFunc4.JPG" width="auto" height="auto">
+
 <img src="Pictures\GraphFunc4.JPG" width="auto" height="auto">
 
 #### Fifth
 
+<img src="Pictures\HistFunc5.JPG" width="auto" height="auto">
+
 <img src="Pictures\GraphFunc5.JPG" width="auto" height="auto">
 
 #### Sixth
+
+<img src="Pictures\HistFunc6.JPG" width="auto" height="auto">
 
 <img src="Pictures\GraphFunc6.JPG" width="auto" height="auto">
 
