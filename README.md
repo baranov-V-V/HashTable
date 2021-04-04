@@ -34,17 +34,29 @@ Second graphs will be more representative for efficient hash funtions, so i will
 * [Conclusion](#conclusion)
 
 #### First
+
 <img src="Pictures\GraphFunc1.JPG" width="auto" height="auto">
+
 #### Second
+
 <img src="Pictures\GraphFunc2.JPG" width="auto" height="auto">
+
 #### Third
+
 <img src="Pictures\GraphFunc3.JPG" width="auto" height="auto">
+
 #### Fourth
+
 <img src="Pictures\GraphFunc4.JPG" width="auto" height="auto">
+
 #### Fifth
+
 <img src="Pictures\GraphFunc5.JPG" width="auto" height="auto">
+
 #### Sixth
+
 <img src="Pictures\GraphFunc6.JPG" width="auto" height="auto">
+
 #### Conclusion
 
 
