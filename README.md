@@ -56,7 +56,7 @@ This is already a quite good funtion but average chain size is 20 and there are 
 
 #### Fifth
 
-There are fewer empty bucket than in the previous one but the distribution is rather bad: peaks with more than 30 elems in one bucket appear often. In can be clearly seen in following graph\n
+There are fewer empty bucket than in the previous one but the distribution is rather bad: peaks with more than 30 elems in one bucket appear often. In can be clearly seen in following graph\
 <img src="Pictures\HistFunc5.JPG" width="640" height="450px">
 
 <img src="Pictures\GraphFunc5.JPG" width="640" height="450px">
