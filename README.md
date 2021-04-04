@@ -50,9 +50,7 @@ Now buckets with no. 2-15 are mostly used so it is as useless as second one.\
 #### Fourth
 
 This is already a quite good funtion but average chain size is 20 and there are still many empty buckets.\
-<img src="Pictures\HistFunc4.JPG" width="640" height="450px">
-
-<img src="Pictures\GraphFunc4.JPG" width="640" height="450px">
+<img src="Pictures\HistFunc4.JPG" width="640" height="450px"> <img src="Pictures\GraphFunc4.JPG" width="640" height="450px">
 
 #### Fifth
 
