@@ -35,7 +35,7 @@ Second graphs will be more representative for efficient hash funtions, so i will
 
 #### First
 
-<img src="Pictures\GraphFunc1.JPG" width="auto" height="auto">
+<img src="Pictures\GraphFunc1.JPG" width="640" height="400px">
 
 #### Second Function
 
@@ -43,7 +43,7 @@ Second graphs will be more representative for efficient hash funtions, so i will
 
 #### Third
 
-<img src="Pictures\GraphFunc3.JPG" width="300px" height="300px">
+<img src="Pictures\GraphFunc3.JPG" width="auto" height="auto">
 
 #### Fourth
 
