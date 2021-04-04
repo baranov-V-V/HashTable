@@ -39,29 +39,29 @@ Second graphs will be more representative for efficient hash funtions, so i will
 
 #### Second Function
 
-<img src="Pictures\GraphFunc2.JPG" width="auto" height="auto">
+<img src="Pictures\GraphFunc2.JPG" width="640" height="450px">
 
 #### Third
 
-<img src="Pictures\GraphFunc3.JPG" width="auto" height="auto">
+<img src="Pictures\GraphFunc3.JPG" width="640" height="450px">
 
 #### Fourth
 
-<img src="Pictures\HistFunc4.JPG" width="auto" height="auto">
+<img src="Pictures\HistFunc4.JPG" width="640" height="450px">
 
-<img src="Pictures\GraphFunc4.JPG" width="auto" height="auto">
+<img src="Pictures\GraphFunc4.JPG" width="640" height="450px">
 
 #### Fifth
 
-<img src="Pictures\HistFunc5.JPG" width="auto" height="auto">
+<img src="Pictures\HistFunc5.JPG" width="640" height="450px">
 
-<img src="Pictures\GraphFunc5.JPG" width="auto" height="auto">
+<img src="Pictures\GraphFunc5.JPG" width="640" height="450px">
 
 #### Sixth
 
-<img src="Pictures\HistFunc6.JPG" width="auto" height="auto">
+<img src="Pictures\HistFunc6.JPG" width="640" height="450px">
 
-<img src="Pictures\GraphFunc6.JPG" width="auto" height="auto">
+<img src="Pictures\GraphFunc6.JPG" width="640" height="450px">
 
 #### Conclusion
 
