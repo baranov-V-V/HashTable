@@ -15,11 +15,15 @@ Here are return values of hash-functions:
 5. returns combination of 'ror' and 'xor' with ascii-code of each sybmol
 6. returns combination of 'rol' and 'xor' with ascii-code of each sybmol
 
-Implementation of all of the hash-fuctions can be found in "srs/TestHashFuncs.cpp".
+Realization of all of the hash-fuctions can be found in "srs/TestHashFuncs.cpp".
 
 ### Testing
 I will use all of this hash functions in a hash table which will perform as a Eng-Rus dictionary. In this hash table collisions will be solved by using chains.
+Testing results will be demonstrated in two types of graphs:
+1. X-axes represents bucket number in hash table and Y-axes shows the amount of elements in that bucket
+2. X-axes shows bucket size and Y-axes shows the total amount of buckets with that size
 
+Second graphs will be more representative for efficient hash funtions, so i will use them in hash funcions from 4 to 6. 
 
 ### Results
 The 6th hash function turned out to be the most effective since it has the lowest number of buckets without elements and overall distribution is close to normal and the average length of chain is rather small, which means hash table will respond faster to queries.
