@@ -4,7 +4,7 @@
 #### Table of Contents
 1. [Preparations](#preparations)  
 2. [Testing](#testing)
-2. [Results](#results)
+3. [Results](#results)
 ### Preparations 
 I have chosen six different hash functions to test and determine which one will be better for my hash table.\
 Here are return values of hash-functions:
@@ -24,6 +24,26 @@ Testing results will be demonstrated in two types of graphs:
 2. X-axes shows bucket size and Y-axes shows the total amount of buckets with that size
 
 Second graphs will be more representative for efficient hash funtions, so i will use them in hash funcions from 4 to 6. 
+
+* [First](#first)
+* [Second](#second)
+* [Third](#third)
+* [Fourth](#fourth)
+* [Fifth](#fifth)
+* [Sixth](#sixth)
+* [Conclusion](#conclusion)
+
+#### First
+
+<img src="Pictures\GraphFunc1.JPG" width="auto" height="auto">
+
+#### Second
+#### Third
+#### Fourth
+#### Fifth
+#### Sixth
+#### Conclusion
+
 
 ### Results
 The 6th hash function turned out to be the most effective since it has the lowest number of buckets without elements and overall distribution is close to normal and the average length of chain is rather small, which means hash table will respond faster to queries.
