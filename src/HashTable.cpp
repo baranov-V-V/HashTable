@@ -1,15 +1,5 @@
-//#include "TXLib.h"
-
 #include "Hash.h"
-
 #include "MyVector.cpp"
-
-const int a_val = 2379;
-const int b_val = 32456921;
-const int p_val = 1013279;
-
-const int increase_bound = 50;
-const int two = 2;
 
 uint64_t HashFunc(char* key) {
     uint64_t hash_val = 0;
@@ -22,10 +12,10 @@ uint64_t HashFunc(char* key) {
 };
 
 Node NodeConstruct(char* key, char* value) {
-  Node node = {};
-  node.value = value;
-  node.key = key;
-  return node;
+    Node node = {};
+    node.value = value;
+    node.key = key;
+    return node;
 }
 
 HashTable* ConstructTable(int initial_size, uint64_t (*HashFunc)(char* key)) {
@@ -44,13 +34,13 @@ HashTable* ConstructTable(int initial_size, uint64_t (*HashFunc)(char* key)) {
 }
 
 void Insert(HashTable* table, Node node) {
-  uint64_t pos = table->hash_func(node.key) % table->size;
+    uint64_t pos = table->hash_func(node.key) % table->size;
 
-  if (Find(table, node.key) != nullptr) {
-    return;
-  }
+    if (Find(table, node.key) != nullptr) {
+        return;
+    }
 
-  PushBack(table->data + pos, node);
+    PushBack(table->data + pos, node);
 }
 
 char* Find(HashTable* table, char* key) {
@@ -110,7 +100,7 @@ void MakeDel(HashTable* table) {
 }
 
 void MakeTask(HashTable* table) {
-    char command = '\0';
+    char command = 0;
     scanf("\n%c ", &command);
 
     switch (command) {
@@ -139,6 +129,17 @@ void DumpTable(HashTable* table) {
             printf("    key: <%s> value: <%s>\n", GetElem(table->data + i, j).key, GetElem(table->data + i, j).value);
         }
     }
+}
+
+void DestructTable(HashTable* table) {
+    assert(table);
+
+    for (int i = 0; i < table->size; ++i) {
+        DestroyVector(table->data + i);
+    }
+
+    free(table->data);
+    free(table);
 }
 
 

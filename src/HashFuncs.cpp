@@ -34,7 +34,6 @@ size_t GetLinesCount(Text* text) {
         }
     }
 
-    //printf("lines: %d", lines_count + 1);
     return lines_count + 1;
 }
 
@@ -95,8 +94,6 @@ void DumpBucketSizes(HashTable* table, char* file_name) {
 
     fwrite(buff_start, buff - buff_start, sizeof(char), fp);
 
-    //printf("<%s>", buff_start);
-
     fclose(fp);
 }
 
@@ -124,8 +121,6 @@ void DumpBucketGraph(HashTable* table, char* file_name) {
 
     fwrite(buff_start, buff - buff_start, sizeof(char), fp);
 
-    //printf("<%s>", buff_start);
-
     fclose(fp);
 }
 
@@ -141,16 +136,9 @@ HashTable* ConstructFromFile(char* file_name, uint64_t (*HashFunc)(char* key)) {
 
     ParceText(&text);
 
-    //DumpText(&text);
-
-    //printf("done1\n");
     for (int i = 0; i < text.lines_count; ++i) {
-      //  printf("done[%d]\n", i);
         Insert(table, text.dict[i]);
     }
-    //printf("done2\n");
-
-    //DumpTable(table);
 
     return table;
 }

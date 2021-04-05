@@ -53,3 +53,4 @@ void MakeAdd(HashTable* table);
 void MakeFind(HashTable* table);
 void MakeTask(HashTable* table);
 void DumpTable(HashTable* table);
+void DestructTable(HashTable* table);

@@ -1,4 +1,3 @@
-//#include "Hash.h"
 #include "Vector.h"
 
 void VectorDump(Vector* vector, FILE* fp) {
@@ -32,8 +31,6 @@ Error_t VectorIncrease(Vector* vector) {
 
     size_t old_capacity = vector->capacity;
 
-    //printf("In increase: capacity: %ld, size: %ld\n", vector->capacity, vector->size);
-
     if (vector->capacity == 0) {
         vector->capacity = 1;
     }
@@ -41,11 +38,9 @@ Error_t VectorIncrease(Vector* vector) {
         vector->capacity = vector->capacity * REALLOC_VALUE;
     }
     else {
-      //  printf("unchanged capaicty: %ld\n", vector->capacity);
         return INCREASE_ERROR;
     }
 
-    //printf("new capaicty: %ld\n", vector->capacity);
     vector->data = (Type_t*) realloc(vector->data, sizeof(Type_t) * vector->capacity);
     assert(vector->data);
 
@@ -86,8 +81,6 @@ Error_t PushBack(struct Vector* vector, Type_t value) {
     }
 
     vector->data[vector->size++] = value;
-
-    //printf("Size after insert: %ld, capa: %ld\n", vector->size, vector->capacity);
 
     return SUCCESS;
 }
