@@ -8,13 +8,13 @@
 ### Preparations 
 I have chosen six different hash functions to test and determine which one will be better for my hash table.\
 Here are return values of hash-functions:
-1. returns always 0
-2. returns ascii-value of first symbol
-3. returns length of key word
-4. returns sum of ascii-codes of all charecters in key word
-5. returns combination of 'ror' and 'xor' with ascii-code of each sybmol
-6. returns combination of 'rol' and 'xor' with ascii-code of each sybmol
-7. return value calculated by crc64 algorithm
+1. [returns always 0](#first)
+2. [returns ascii-value of first symbol](#second)
+3. [returns length of key word](#third)
+4. [returns sum of ascii-codes of all charecters in key word](#fourth)
+5. [returns combination of 'ror' and 'xor' with ascii-code of each sybmol](#fifth)
+6. [returns combination of 'rol' and 'xor' with ascii-code of each sybmol](#sixth)
+7. [return value calculated by crc64 algorithm](#seventh)
 
 Realization of all of the hash-fuctions can be found in "srs/TestHashFuncs.cpp".
 
