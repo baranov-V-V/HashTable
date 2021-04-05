@@ -63,7 +63,7 @@ There are fewer empty bucket than in the previous one but the distribution is ra
 
 #### Sixth
 
-Both distribution and number of empty buckets are better than in function with 'ror'.However we can achieve even better results with crc64.\
+Both distribution and number of empty buckets are better than in function with 'ror'. However we can achieve even better results with crc64.\
 <img src="Pictures\HistFunc6.JPG" width="640" height="450px">
 
 <img src="Pictures\GraphFunc6.JPG" width="640" height="450px">
