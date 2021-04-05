@@ -14,6 +14,7 @@ Here are return values of hash-functions:
 4. returns sum of ascii-codes of all charecters in key word
 5. returns combination of 'ror' and 'xor' with ascii-code of each sybmol
 6. returns combination of 'rol' and 'xor' with ascii-code of each sybmol
+7. return value calculated by crc64 algorithm
 
 Realization of all of the hash-fuctions can be found in "srs/TestHashFuncs.cpp".
 
@@ -31,13 +32,14 @@ Second graphs will be more representative for efficient hash funtions, so i will
 * [Fourth function](#fourth)
 * [Fifth function](#fifth)
 * [Sixth function](#sixth)
+* [Seventh function](#seventh)
 
 #### First
 
 This function is really bad ~~no comments~~.\
 <img src="Pictures\GraphFunc1.JPG" width="640" height="450px">
 
-#### Second Function
+#### Second
 
 A little better than previous one, but buckets with no. 98-120 are only used so it is not very useful in hash table.\
 <img src="Pictures\GraphFunc2.JPG" width="640" height="450px">
@@ -61,10 +63,16 @@ There are fewer empty bucket than in the previous one but the distribution is ra
 
 #### Sixth
 
-Both distribution and number of empty buckets are good and this function seems perfect for furher researches.\
+Both distribution and number of empty buckets are better than in function with 'ror'.However we can achieve even better results with crc64.\
 <img src="Pictures\HistFunc6.JPG" width="640" height="450px">
 
 <img src="Pictures\GraphFunc6.JPG" width="640" height="450px">
 
+#### Seventh
+
+<img src="Pictures\HistFunc7.JPG" width="640" height="450px">
+
+<img src="Pictures\GraphFunc7.JPG" width="640" height="450px">
+
 ### Results
-The 6th hash function turned out to be the most effective since it has the lowest number of buckets without elements and overall distribution is close to normal and the average length of chain is rather small, which means hash table will respond faster to queries.
+The 7th hash function turned out to be the most effective since it has the lowest number of empty buckets, overall distribution is excellent and the average length of chain is rather small, which means hash table will respond very fast.
