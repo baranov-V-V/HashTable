@@ -6,7 +6,7 @@
 2. [Testing](#testing)
 3. [Results](#results)
 ### Preparations 
-I have chosen six different hash functions to test and determine which one will be better for my hash table.\
+I have chosen seven different hash functions to test and determine which one will be better for my hash table.\
 Here are return values of hash-functions:
 1. [returns always 0](#first)
 2. [returns ascii-value of first symbol](#second)
@@ -44,10 +44,14 @@ This function is really bad ~~no comments~~.\
 A little better than previous one, but buckets with no. 98-120 are only used so it is not very useful in hash table.\
 <img src="Pictures\GraphFunc2.JPG" width="640" height="450px">
 
+<img src="Pictures\GraphFunc2.1.JPG" width="640" height="450px">
+
 #### Third
 
 Now buckets with no. 2-15 are mostly used so it is as useless as second one.\
 <img src="Pictures\GraphFunc3.JPG" width="640" height="450px">
+
+<img src="Pictures\GraphFunc3.1.JPG" width="640" height="450px">
 
 #### Fourth
 
