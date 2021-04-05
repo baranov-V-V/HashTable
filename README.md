@@ -24,7 +24,7 @@ Testing results will be demonstrated in two types of graphs:
 1. X-axes represents bucket number in hash table and Y-axes shows the amount of elements in that bucket
 2. X-axes shows bucket size and Y-axes shows the total amount of buckets with that size
 
-Second graphs will be more representative for efficient hash funtions, so i will use them in hash funcions from 4 to 6. 
+Second graphs will be more representative for efficient hash funtions, so i will use them in hash funcions 4 to 7. 
 
 * [First function](#first)
 * [Second function](#second)
