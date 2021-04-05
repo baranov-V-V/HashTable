@@ -76,4 +76,4 @@ Practically there is no empty buckets the graphs are amazing. It is just crc64.\
 <img src="Pictures\GraphFunc7.JPG" width="640" height="450px">
 
 ### Results
-The 7th hash function turned out to be the most effective since it has the lowest number of empty buckets, overall distribution is excellent and the average length of chain is rather small, which means hash table will respond very fast.
+Crc64 hash function turned out to be the most effective since it has the lowest number of empty buckets, overall distribution is excellent and the average length of chain is rather small, which means hash table will respond very fast.
