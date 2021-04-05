@@ -1,7 +1,7 @@
 # HashTable
 ### The main goal of this small research is to find an effective hash function and implement it in my hash table.
 
-#### Table of Contents
+### Table of Contents
 1. [Preparations](#preparations)  
 2. [Testing](#testing)
 3. [Results](#results)
