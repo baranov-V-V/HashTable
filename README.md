@@ -93,22 +93,31 @@ Crc64 hash function turned out to be the most effective since it has the lowest 
 #### Problem
 First, lets measure all working time of my hash table. I will be finding translation of every word in a big text for many times so working time will be recogniziby big and easy and accurate to measure. Also, i will measure working time of hash function, function finding word and function to insert (wich constists of find and insert in chain)
 
-Function name | Working time (in sec)
+Function name | Working time
 ------------ | -------------
-Hash | 3.73
-Find | 1.31
-Main | 8.92
+Hash | 1.57 sec
+Find | 0.70 sec
+Main | 4.65 sec
 
 Other process time took functions to read from file and construct dictionary, we don't optimize them since they are not functions of hash table
 
 #### Hash
 As we can see, it takes almous half of our working time to calculate hash, and 3/4 of all hash-table working time.
-We'll first make an assembler insert and rewrite cash calculation of crc64 using asm.
-Then, i will use crc32 intrinsic
+I will use crc32 intrinsic here
 
-Working time with asm i
+Old working hash time | New working hash time
+------------ | -------------
+1.57 | 0.17
+
+The increase in speed is almost 10 times which is very good. However this acceleration is hardware dependent so it is only available on x86 processors.
 
 #### Find
+
+Now since we optimized the slowest part of our hash table, lets look at function which finds elements in hash table. After hash is calculated we go down a chain and compare keys in nodes with key to find. In order to make it faster we can store key-strings in avx registers (_m256i_ type in C) (because they can store up to 32 bytes and most of the english words are shorter than 32). So again we will use intrinsics functions to compare avx registers efficiently.
+
+Old working find time | New working find time
+------------ | -------------
+1.57 | 0.17
 
 #### Results
 
