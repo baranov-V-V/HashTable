@@ -106,7 +106,7 @@ Total work time:
 Other process time took functions to read from file and construct dictionary, we don't optimize them since they are not functions of hash table.
 
 #### Hash
-As we can see, it takes almous half of our working time to calculate hash, and 3/4 of all hash-table working time. I will use crc32 intrinsic here.
+As we can see, it takes almoust half of our working time to calculate hash, and 3/4 of all hash-table working time. I will use crc32 intrinsic here.
 Also i will make a series of measurements to lower measurement uncertainty.
 
 Muasurement no. | 1 | 2 | 3 | 4 | 5 | Average
@@ -123,7 +123,7 @@ Total work time after all hash func optimizations:
 
 #### Find
 
-Now since we optimized the slowest part of our hash table, lets look at function which finds elements in hash table. After hash is calculated we go down a chain and compare keys in nodes with key to find. In order to make it faster we can store key-strings in avx registers (_m256i_ type in C) (because they can store up to 32 bytes and most of the english words are shorter than 32). So again we will use intrinsics functions to compare avx registers efficiently.
+Now since we optimized the slowest part of our hash table, lets look at function which is the second in speed. After hash is calculated we go down a chain and compare keys in nodes with key to find. In order to make it faster we can store key-strings in avx registers (_m256i_ type in C) (because they can store up to 32 bytes and most of the english words are shorter than 32 symbols). So again we will use intrinsics functions to compare avx registers efficiently.
 
 Muasurement no. | 1 | 2 | 3 | 4 | 5 | Average
 ----------------|---|---|---|---|---|-------- 
@@ -136,7 +136,7 @@ Total work time after find func optimizations:
 
 <img src="Pictures\ValGrind3.JPG" width="auto" height="auto">
 
-By using all of this functions i can get very fast hash table and the average acceleration of the programm is 1.51
+By using all of this functions i can get very fast hash table and it is faster than -O3 in 1.45 times.
 
 ### Conclusion
 
