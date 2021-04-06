@@ -1,10 +1,12 @@
 # HashTable
-### The main goal of this small research is to find an effective hash function and implement it in my hash table.
+### The main goal of this small research is to find an effective hash function, implement it in my hash table, and optimize it.
 
 ### Table of Contents
 1. [Preparations](#preparations)  
-2. [Testing](#testing)
-3. [Results](#results)
+2. [Testing hash functions](#testing)
+3. [Results in testing hash function](#results)
+4. [Optimizing hash table](#optimization)
+5. [Results in optimizing](#conclusion)
 ### Preparations 
 I have chosen seven different hash functions to test and determine which one will be better for my hash table.\
 Here are return values of hash-functions:
@@ -81,3 +83,8 @@ Practically there is no empty buckets the graphs are amazing. It is just crc64.\
 
 ### Results
 Crc64 hash function turned out to be the most effective since it has the lowest number of empty buckets, overall distribution is excellent and the average length of chain is rather small, which means hash table will respond very fast.
+
+### Optimization
+
+### Conclusion
+
