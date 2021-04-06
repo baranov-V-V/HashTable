@@ -105,7 +105,7 @@ Other process time took functions to read from file and construct dictionary, we
 As we can see, it takes almous half of our working time to calculate hash, and 3/4 of all hash-table working time. I will use crc32 intrinsic here.
 Also i will make a series of measurements to lower measurement uncertainty.
 Muasurement no. | 1 | 2 | 3 | 4 | 5 | Average
------------- | -------------
+----------------|---|---|---|---|---|-------- 
 Old working hash time | 1.57 sec | 1.63 sec | 1.52 sec | 1.50 sec | 1.54 sec | 1.55 sec 
 New working hash time | 0.15 sec | 0.17 sec | 0.18 sec | 0.18 sec | 0.17 sec | 0.17 sec
 
