@@ -97,17 +97,17 @@ Function name | Working time
 ------------ | -------------
 Hash | 1.57 sec
 Find | 0.70 sec
-Main | 4.65 sec
+All Table | 4.65 sec
 
 Other process time took functions to read from file and construct dictionary, we don't optimize them since they are not functions of hash table
 
 #### Hash
-As we can see, it takes almous half of our working time to calculate hash, and 3/4 of all hash-table working time.
-I will use crc32 intrinsic here
-
-Old working hash time | New working hash time
+As we can see, it takes almous half of our working time to calculate hash, and 3/4 of all hash-table working time. I will use crc32 intrinsic here.
+Also i will make a series of measurements to lower measurement uncertainty.
+Muasurement no. | 1 | 2 | 3 | 4 | 5 | Average
 ------------ | -------------
-1.57 | 0.17
+Old working hash time | 1.57 sec | 1.63 sec | 1.52 sec | 1.50 sec | 1.54 sec | 1.55 sec 
+New working hash time | 0.15 sec | 0.17 sec | 0.18 sec | 0.18 sec | 0.17 sec | 0.17 sec
 
 The increase in speed is almost 10 times which is very good. However this acceleration is hardware dependent so it is only available on x86 processors.
 
@@ -117,7 +117,9 @@ Now since we optimized the slowest part of our hash table, lets look at function
 
 Old working find time | New working find time
 ------------ | -------------
-1.57 | 0.17
+0.70 | 0.38
+
+So the increase in work time 
 
 #### Results
 
