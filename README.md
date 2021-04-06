@@ -99,7 +99,7 @@ Hash | 1.57 sec
 Find | 0.70 sec
 All Table | 4.65 sec
 
-Total work time:
+Total work time:\
 <img src="Pictures\ValGrind1.JPG" width="auto" height="auto">
 
 Other process time took functions to read from file and construct dictionary, we don't optimize them since they are not functions of hash table.
@@ -116,7 +116,7 @@ Intrisic func | 0.15 sec | 0.17 sec | 0.18 sec | 0.18 sec | 0.17 sec | 0.17 sec
 
 The increase in speed is almost 10 times which is very good. However this acceleration is hardware dependent so it is only available on x86 processors.
 
-Total work time after all hash func optimizations:
+Total work time after all hash func optimizations:\
 <img src="Pictures\ValGrind2.JPG" width="auto" height="auto">
 
 #### Find
@@ -130,7 +130,7 @@ New find | 0.50 sec | 0.53 sec | 0.47 sec | 0.49 sec | 0.50 sec | 0.51 sec
 
 So the increase in work time in 7/4 times
 
-Total work time after find func optimizations:
+Total work time after find func optimizations:\
 <img src="Pictures\ValGrind3.JPG" width="auto" height="auto">
 
 #### Results
