@@ -104,10 +104,12 @@ Other process time took functions to read from file and construct dictionary, we
 #### Hash
 As we can see, it takes almous half of our working time to calculate hash, and 3/4 of all hash-table working time. I will use crc32 intrinsic here.
 Also i will make a series of measurements to lower measurement uncertainty.
+
 Muasurement no. | 1 | 2 | 3 | 4 | 5 | Average
 ----------------|---|---|---|---|---|-------- 
-Old working hash time | 1.57 sec | 1.63 sec | 1.52 sec | 1.50 sec | 1.54 sec | 1.55 sec 
-New working hash time | 0.15 sec | 0.17 sec | 0.18 sec | 0.18 sec | 0.17 sec | 0.17 sec
+Old hash func | 1.57 sec | 1.63 sec | 1.52 sec | 1.50 sec | 1.54 sec | 1.55 sec 
+New hash func | 0.87 sec | 0.81 sec | 0.83 sec | 0.89 sec | 0.80 sec | 0.84 sec
+Intrisic func | 0.15 sec | 0.17 sec | 0.18 sec | 0.18 sec | 0.17 sec | 0.17 sec
 
 The increase in speed is almost 10 times which is very good. However this acceleration is hardware dependent so it is only available on x86 processors.
 
@@ -115,13 +117,18 @@ The increase in speed is almost 10 times which is very good. However this accele
 
 Now since we optimized the slowest part of our hash table, lets look at function which finds elements in hash table. After hash is calculated we go down a chain and compare keys in nodes with key to find. In order to make it faster we can store key-strings in avx registers (_m256i_ type in C) (because they can store up to 32 bytes and most of the english words are shorter than 32). So again we will use intrinsics functions to compare avx registers efficiently.
 
-Old working find time | New working find time
------------- | -------------
-0.70 | 0.38
+Muasurement no. | 1 | 2 | 3 | 4 | 5 | Average
+----------------|---|---|---|---|---|-------- 
+Old find | 0.78 sec | 0.80 sec | 0.81 sec | 0.75 sec | 0.78 sec | 0.79 sec 
+New find | 0.50 sec | 0.53 sec | 0.47 sec | 0.49 sec | 0.50 sec | 0.51 sec
 
-So the increase in work time 
+So the increase in work time in 7/4 times
 
 #### Results
 
+By using all of this functions i can get very fast hash table and the average acceleration of the programm is 1.51
+
 ### Conclusion
 
+Using all this optimizations i made a hash table wich is very efficient and can be implemented is your program. Text me! 
+https://vk.com/baranov_v_v
