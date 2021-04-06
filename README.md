@@ -85,15 +85,32 @@ Practically there is no empty buckets the graphs are amazing. It is just crc64.\
 Crc64 hash function turned out to be the most effective since it has the lowest number of empty buckets, overall distribution is excellent and the average length of chain is rather small, which means hash table will respond very fast.
 
 ### Optimization
+* [Stating problem](#problem)
+* [Optimizing hash function](#Hash)
+* [Optimizing find function](#Find)
+* [Final optimization results](#Result)
 
+#### Problem
 First, lets measure all working time of my hash table. I will be finding translation of every word in a big text for many times so working time will be recogniziby big and easy and accurate to measure. Also, i will measure working time of hash function, function finding word and function to insert (wich constists of find and insert in chain)
 
 Function name | Working time (in sec)
 ------------ | -------------
-Hash | 2.05
-Insert | 0.46
-Find | 1.05
-Main | 5.10
+Hash | 3.73
+Find | 1.31
+Main | 8.92
+
+Other process time took functions to read from file and construct dictionary, we don't optimize them since they are not functions of hash table
+
+#### Hash
+As we can see, it takes almous half of our working time to calculate hash, and 3/4 of all hash-table working time.
+We'll first make an assembler insert and rewrite cash calculation of crc64 using asm.
+Then, i will use crc32 intrinsic
+
+Working time with asm i
+
+#### Find
+
+#### Results
 
 ### Conclusion
 
