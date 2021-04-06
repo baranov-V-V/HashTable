@@ -99,7 +99,10 @@ Hash | 1.57 sec
 Find | 0.70 sec
 All Table | 4.65 sec
 
-Other process time took functions to read from file and construct dictionary, we don't optimize them since they are not functions of hash table
+Total work time:
+<img src="Pictures\ValGrind1.JPG" width="auto" height="auto">
+
+Other process time took functions to read from file and construct dictionary, we don't optimize them since they are not functions of hash table.
 
 #### Hash
 As we can see, it takes almous half of our working time to calculate hash, and 3/4 of all hash-table working time. I will use crc32 intrinsic here.
@@ -113,6 +116,9 @@ Intrisic func | 0.15 sec | 0.17 sec | 0.18 sec | 0.18 sec | 0.17 sec | 0.17 sec
 
 The increase in speed is almost 10 times which is very good. However this acceleration is hardware dependent so it is only available on x86 processors.
 
+Total work time after all hash func optimizations:
+<img src="Pictures\ValGrind2.JPG" width="auto" height="auto">
+
 #### Find
 
 Now since we optimized the slowest part of our hash table, lets look at function which finds elements in hash table. After hash is calculated we go down a chain and compare keys in nodes with key to find. In order to make it faster we can store key-strings in avx registers (_m256i_ type in C) (because they can store up to 32 bytes and most of the english words are shorter than 32). So again we will use intrinsics functions to compare avx registers efficiently.
@@ -123,6 +129,9 @@ Old find | 0.78 sec | 0.80 sec | 0.81 sec | 0.75 sec | 0.78 sec | 0.79 sec
 New find | 0.50 sec | 0.53 sec | 0.47 sec | 0.49 sec | 0.50 sec | 0.51 sec
 
 So the increase in work time in 7/4 times
+
+Total work time after find func optimizations:
+<img src="Pictures\ValGrind3.JPG" width="auto" height="auto">
 
 #### Results
 
