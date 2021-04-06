@@ -86,5 +86,14 @@ Crc64 hash function turned out to be the most effective since it has the lowest 
 
 ### Optimization
 
+First, lets measure all working time of my hash table. I will be finding translation of every word in a big text for many times so working time will be recogniziby big and easy and accurate to measure. Also, i will measure working time of hash function, function finding word and function to insert (wich constists of find and insert in chain)
+
+Function name | Working time (in sec)
+------------ | -------------
+Hash | 2.05
+Insert | 0.46
+Find | 1.05
+Main | 5.10
+
 ### Conclusion
 
