@@ -109,36 +109,36 @@ So we will optimise these functions.
 #### Hash
 As we can see from the profile picture above, it takes almoust all of our working time to calculate hash. I will use crc32 intrinsic here.
 
-Lets see how our Crc32 hash function speed increased from 12.4sec to 1.3sec:
+Look at Crc32Optimized hash function which speed increased from 12.4 sec to 1.3 sec:
 
 <img src="Pictures\Gprof2.JPG" width="auto" height="auto">
 
-The increase in speed of Crc32 is more than 10 times which is very good. However this acceleration is hardware dependent so it is only available on x86 processors.
+The total increase in speed of Crc32 hash function is more than 10 times which is very good. However this acceleration is hardware dependent so it is only available on x86 processors.
 
 #### Find
 
 Now since we optimized the slowest part of our hash table, lets look at function which is the second in speed. After hash is calculated we go down a chain and compare keys in nodes with key to find. In order to make it faster we can store key-strings in avx registers (_m256i_ type in C) (because they can store up to 32 bytes and most of the english words are shorter than 32 symbols). So again we will use intrinsics functions to compare avx registers efficiently.
 
-Results after implementing _m256i_ are not so optimistic:
+Results after implementing _m256i_ are not so optimistic. The decrease in speed can be seen clearly. The work time of Find function increased from 2.4 sec to 12.0 sec:
 
 <img src="Pictures\Gprof3.JPG" width="auto" height="auto">
 
-As we can see that Find time only increase.
-But lets try to rewrite strcmp function using inline asm:
+However, lets try to rewrite strcmp function using inline asm. By using this we still don't get increase in speed. Find function nowe works for 3.3 sec instead of 2.4 sec:
 
 <img src="Pictures\Gprof6.JPG" width="auto" height="auto">
 
-Unfortunately it didn't work out again and standart is still faster
-So we will leave this function as it was.
+So we will leave this Find function as it was before all optimizations.
 
 #### Results
-Let look at working time with -O3 optimization:
+Let look at working time of all functions with -O3 optimization:
 
 <img src="Pictures\Gprof5(-O3).JPG" width="auto" height="auto">
 
 It is still significantly lower than with our opimizations:
 
 <img src="Pictures\Gprof2.JPG" width="auto" height="auto">
+
+Furher optimizations are not useful to implement because we increased performances of all the hash table functions and other function in my program are not related to hash table.
 
 ### Conclusion
 
