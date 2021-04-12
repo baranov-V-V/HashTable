@@ -96,8 +96,8 @@ First, lets measure all working time of my hash table. I will be finding transla
 Function name | Working time
 ------------ | -------------
 Hash | 12.4 sec
-Find |  sec
-All Table |  sec
+Find | 2.4 sec
+All Table | 15.4 sec
 
 Total work time:
 
