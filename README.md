@@ -91,7 +91,11 @@ Crc64 hash function turned out to be the most effective since it has the lowest 
 * [Final optimization results](#Result)
 
 #### Problem
-First, lets measure all working time of my hash table. I will be finding translation of every word in a big text for many times so working time will be recogniziby big and easy and accurate to measure. Also, i will measure working time of hash function, function finding word and function to insert (wich constists of find and insert in chain)
+First, lets measure all working time of my hash table. I will be finding translation of every word in a big text for many times so working time will be recogniziby big and easy and accurate to measure.To profile my programme i will use GNU gprof.
+
+Working time of each function:
+
+<img src="Pictures\Gprof1.JPG" width="auto" height="auto">
 
 Function name | Working time
 ------------ | -------------
@@ -99,26 +103,17 @@ Hash | 12.4 sec
 Find | 2.4 sec
 All Table | 15.4 sec
 
-Total work time:
-
-<img src="Pictures\Gprof1.JPG" width="auto" height="auto">
-
-Other process time took functions to read from file and construct dictionary, we don't optimize them since they are not functions of hash table.
+As we can see, the most of the working time take Hash(80%) and Find(15%) functions. In total they take 95% of all working time!.
+So we will optimise these functions. 
 
 #### Hash
 As we can see, it takes almoust all of our working time to calculate hash. I will use crc32 intrinsic here.
-Also i will make a series of measurements to lower measurement uncertainty.
 
-Muasurement no. | 1 | 2 | 3 | 4 | 5 | Average
-----------------|---|---|---|---|---|-------- 
-Old hash func | 12.4 sec | 12.2 sec | 12.1 sec | 12.5 sec | 12.3 sec | 12.3 sec 
-Intrisic func | 1.3 sec | 1.2 sec | 1.2 sec | 1.0 sec | 1.3 sec | 1.3 sec
-
-The increase in speed is more than 10 times which is very good. However this acceleration is hardware dependent so it is only available on x86 processors.
-
-Total work time after all hash func optimizations:
+Lets see how our speed increased:
 
 <img src="Pictures\Gprof2.JPG" width="auto" height="auto">
+
+The increase in speed is more than 10 times which is very good. However this acceleration is hardware dependent so it is only available on x86 processors.
 
 #### Find
 
@@ -134,16 +129,18 @@ But lets try to rewrite strcmp function using inline asm:
 <img src="Pictures\Gprof6.JPG" width="auto" height="auto">
 
 Unfortunately it didn't work out again and standart is still faster
-
 So we will leave this function as it was.
+
 #### Results
 Let look at working time with -O3 optimization:
 
 <img src="Pictures\Gprof5(-O3).JPG" width="auto" height="auto">
 
-By using all of this functions i can get very fast hash table and it is faster than -O3 in 3 times.
+It is still significantly lower than with our opimizations:
+
+<img src="Pictures\Gprof2.JPG" width="auto" height="auto">
 
 ### Conclusion
 
-Using all this optimizations i made a hash table wich is very efficient and can be implemented is your program. Text me! 
+Using all this optimizations i made a hash table that is 3 times faster than -O3.So It is very efficient and can be implemented is your programmes Text me! 
 https://vk.com/baranov_v_v
