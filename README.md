@@ -95,48 +95,53 @@ First, lets measure all working time of my hash table. I will be finding transla
 
 Function name | Working time
 ------------ | -------------
-Hash | 1.57 sec
-Find | 0.70 sec
-All Table | 4.65 sec
+Hash | 12.4 sec
+Find |  sec
+All Table |  sec
 
 Total work time:
 
-<img src="Pictures\ValGrind1.JPG" width="auto" height="auto">
+<img src="Pictures\Gprof1.JPG" width="auto" height="auto">
 
 Other process time took functions to read from file and construct dictionary, we don't optimize them since they are not functions of hash table.
 
 #### Hash
-As we can see, it takes almoust half of our working time to calculate hash, and 3/4 of all hash-table working time. I will use crc32 intrinsic here.
+As we can see, it takes almoust all of our working time to calculate hash. I will use crc32 intrinsic here.
 Also i will make a series of measurements to lower measurement uncertainty.
 
 Muasurement no. | 1 | 2 | 3 | 4 | 5 | Average
 ----------------|---|---|---|---|---|-------- 
-Old hash func | 1.57 sec | 1.63 sec | 1.52 sec | 1.50 sec | 1.54 sec | 1.55 sec 
-New hash func | 0.87 sec | 0.81 sec | 0.83 sec | 0.89 sec | 0.80 sec | 0.84 sec
-Intrisic func | 0.15 sec | 0.17 sec | 0.18 sec | 0.18 sec | 0.17 sec | 0.17 sec
+Old hash func | 12.4 sec | 12.2 sec | 12.1 sec | 12.5 sec | 12.3 sec | 12.3 sec 
+Intrisic func | 1.3 sec | 1.2 sec | 1.2 sec | 1.0 sec | 1.3 sec | 1.3 sec
 
-The increase in speed is almost 10 times which is very good. However this acceleration is hardware dependent so it is only available on x86 processors.
+The increase in speed is more than 10 times which is very good. However this acceleration is hardware dependent so it is only available on x86 processors.
 
 Total work time after all hash func optimizations:
 
-<img src="Pictures\ValGrind2.JPG" width="auto" height="auto">
+<img src="Pictures\Gprof2.JPG" width="auto" height="auto">
 
 #### Find
 
 Now since we optimized the slowest part of our hash table, lets look at function which is the second in speed. After hash is calculated we go down a chain and compare keys in nodes with key to find. In order to make it faster we can store key-strings in avx registers (_m256i_ type in C) (because they can store up to 32 bytes and most of the english words are shorter than 32 symbols). So again we will use intrinsics functions to compare avx registers efficiently.
 
-Muasurement no. | 1 | 2 | 3 | 4 | 5 | Average
-----------------|---|---|---|---|---|-------- 
-Old find | 0.78 sec | 0.80 sec | 0.81 sec | 0.75 sec | 0.78 sec | 0.79 sec 
-New find | 0.50 sec | 0.53 sec | 0.47 sec | 0.49 sec | 0.50 sec | 0.51 sec
+Results after implementing _m256i_ are not so optimistic:
 
-So the increase in work time in 7/4 times
+<img src="Pictures\Gprof3.JPG" width="auto" height="auto">
+
+As we can see that Find time only increase.
+But lets try to rewrite strcmp function using inline asm:
+
+<img src="Pictures\Gprof6.JPG" width="auto" height="auto">
+
+Onfortunately it didn't work out again and standart is still faster
+
+So we will leave this function as it was.
 #### Results
-Total work time after find func optimizations:
+Let look at working time with -O3 optimization:
 
-<img src="Pictures\ValGrind3.JPG" width="auto" height="auto">
+<img src="Pictures\Gprof5(-O3).JPG" width="auto" height="auto">
 
-By using all of this functions i can get very fast hash table and it is faster than -O3 in 1.45 times.
+By using all of this functions i can get very fast hash table and it is faster than -O3 in 3 times.
 
 ### Conclusion
 
