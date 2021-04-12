@@ -109,11 +109,11 @@ So we will optimise these functions.
 #### Hash
 As we can see from the profile picture above, it takes almoust all of our working time to calculate hash. I will use crc32 intrinsic here.
 
-Lets see how our speed increased:
+Lets see how our Crc32 hash function speed increased:
 
 <img src="Pictures\Gprof2.JPG" width="auto" height="auto">
 
-The increase in speed is more than 10 times which is very good. However this acceleration is hardware dependent so it is only available on x86 processors.
+The increase in speed of Crc32 is more than 10 times which is very good. However this acceleration is hardware dependent so it is only available on x86 processors.
 
 #### Find
 
