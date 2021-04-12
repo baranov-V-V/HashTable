@@ -109,7 +109,7 @@ So we will optimise these functions.
 #### Hash
 As we can see from the profile picture above, it takes almoust all of our working time to calculate hash. I will use crc32 intrinsic here.
 
-Lets see how our Crc32 hash function speed increased:
+Lets see how our Crc32 hash function speed increased from 12.4sec to 1.3sec:
 
 <img src="Pictures\Gprof2.JPG" width="auto" height="auto">
 
