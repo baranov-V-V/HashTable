@@ -133,7 +133,7 @@ But lets try to rewrite strcmp function using inline asm:
 
 <img src="Pictures\Gprof6.JPG" width="auto" height="auto">
 
-Onfortunately it didn't work out again and standart is still faster
+Unfortunately it didn't work out again and standart is still faster
 
 So we will leave this function as it was.
 #### Results
