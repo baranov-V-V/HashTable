@@ -107,7 +107,7 @@ As we can see, the most of the working time take Hash(80%) and Find(15%) functio
 So we will optimise these functions. 
 
 #### Hash
-As we can see, it takes almoust all of our working time to calculate hash. I will use crc32 intrinsic here.
+As we can see from the profile picture above, it takes almoust all of our working time to calculate hash. I will use crc32 intrinsic here.
 
 Lets see how our speed increased:
 
