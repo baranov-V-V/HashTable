@@ -95,18 +95,19 @@ First, lets measure working time of each function in my hash table and determine
 
 Working time of each function compiled with -O0:
 
-<img src="Pictures\Gprof1.1JPG" width="auto" height="auto">
+<img src="Pictures\Gprof1.1.JPG" width="auto" height="auto">
 
-As we can see, the most of the working time take Hash fucntion with working time of 8.2 sec and Find function with working time of 7.83 sec. In total they take more than 95% of all working time of my hash table, so we are going to optimize them.
+As we can see, the most of the working time take "Crc32NotOprimized" hash fucntion with working time of 8.2 sec and "Find" function with working time of 7.83 sec. In total they take more than 95% of all working time of my hash table, so we are going to optimize them.
 
 #### Hash
-As we can see from the profile picture above, it takes almoust all of our working time to calculate hash. I will use crc32 intrinsic here.
+As we can see from the profile picture above, Hash function is the slowest one, so we'll try to speed up it. A good way to make hash calculate faster is using crc32 intrinsic function. One disadvantage of this method of optimizing is that it is hardware based and only works on computers with x86 architecture.
 
-Look at Crc32Optimized hash function which speed increased from 12.4 sec to 1.3 sec:
+The picture below shows us new working times of functions in hash table. In this test we implemented new hash function based on crc32 intrinsic which is called "Crc32Optimized".
+The program is compiled with -O1 so that compiler can inline functions for speed.
 
-<img src="Pictures\Gprof2.JPG" width="auto" height="auto">
+<img src="Pictures\Gprof2.2JPG" width="auto" height="auto">
 
-The total increase in speed of Crc32 hash function is more than 10 times which is very good. However this acceleration is hardware dependent so it is only available on x86 processors.
+As we can see, the working speed of our hash function decreased from 8.2 sec to 0.8 sec which means that the acceleration is 10 times.
 
 #### Find
 
