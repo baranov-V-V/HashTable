@@ -129,6 +129,8 @@ However, lets try to rewrite strcmp function using inline asm. By using this we 
 
 So we will leave this Find function as it was before all optimizations.
 
+So the
+
 #### Results
 Lets look at working times of all unoptimized functions with -O3 optimization and fully optimized hash table:
 
