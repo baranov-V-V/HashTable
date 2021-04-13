@@ -118,7 +118,7 @@ Firstly, lets rewrite string compare function using inline asm in C in order to 
 
 <img src="Pictures\Gprof3.1.JPG" width="auto" height="auto">
 
-it gave us slightly better speed. We can see decrease of total "Find" time from 7.4 sec to 5.4 sec. (5.4 sec is the sum of "MyStrCmp" and "Find" functions and 7.4 sec is the working time of unoptimized "Find")
+it gave us slightly better speed. We can see decrease of total "Find" time from 7.4 sec to 5.4 sec. (5.4 sec is the sum of "MyStrCmp" and "Find" functions and 7.4 sec is the working time of unoptimized "Find" which can be found in pictures above)
 
 In order to make it even faster we can store key-strings in avx registers which is _m256i_ type in C. Our key words is less than 32 symbols long so there won't be any problems in storing. So again we will use intrinsics functions to compare avx registers efficiently.
 
