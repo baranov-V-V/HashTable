@@ -140,7 +140,7 @@ Optimized:
 As we can see the overall working time of program is 12.1 sec (main function time). 
 And the total work time of full optimized hash table is 4.8 sec (main function time).
 
-So optimized hash table is 2.5 times faster than an unoptimized table compiled in -O3. Such increase in speed over -O3 can be explained: gcc compiler don't undertstand when to use crc32 intrin function, so we use it as a great advantage.
+So optimized hash table is 2.5 times faster than an unoptimized table compiled in -O3. Such increase in speed over -O3 can be explained: gcc compiler don't undertstand when to use crc32 intrin function, so we use it as a great advantage. Furher optimizing is not needed because we have optimized all the functions that are part of hash table.
 
 ### Conclusion
 
