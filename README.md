@@ -118,23 +118,26 @@ Firstly, lets rewrite string compare function using inline asm in C in order to 
 
 <img src="Pictures\Gprof3.1JPG" width="auto" height="auto">
 
-it gave us slightly better speed: decrease of total work time from 7.4 sec to 5.4 sec. (5.4 sec is the sum of "MyStrCmp" and "Find" functions) 
+it gave us slightly better speed. We can see decrease of total "Find" time from 7.4 sec to 5.4 sec. (5.4 sec is the sum of "MyStrCmp" and "Find" functions and 7.4 sec is the working time of unoptimized "Find")
 
 In order to make it even faster we can store key-strings in avx registers which is _m256i_ type in C. Our key words is less than 32 symbols long so there won't be any problems in storing. So again we will use intrinsics functions to compare avx registers efficiently.
 
 <img src="Pictures\Gprof4.1JPG" width="auto" height="auto">
 
-As we can see now it takes only 3.8 sec instead of 7.4 to find all words. It is the best result that we can get using hard
+As we can see now it takes only 3.8 sec instead of 7.4 to find all words. It is the best result that we can get using hardware optimizations.
+So the speed of "Find" has increased in 2 times.
 
 #### Results
-Lets look at working times of all unoptimized functions with -O3 optimization and fully optimized hash table:
+Lets compare working time of unoptimized hash table with -O3 comp.flag and fully optimized hash table:
 
+Unoptimized:\
 <img src="Pictures\Gprof5(-O3).1.JPG" width="auto" height="auto">
 
-As we can see the overall working time of program is 12.1 sec (main function time). 
-
+Optimized:
 <img src="Pictures\Gprof4.1.JPG" width="auto" height="auto">
 
+
+As we can see the overall working time of program is 12.1 sec (main function time). 
 And the total work time of full optimized hash table is 4.8 sec (main function time).
 
 So optimized hash table is 2.5 times faster than an unoptimized table compiled in -O3. Such increase in speed over -O3 can be explained: gcc compiler don't undertstand when to use crc32 intrin function, so we use it as a great advantage.
