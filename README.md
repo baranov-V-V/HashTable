@@ -91,20 +91,13 @@ Crc64 hash function turned out to be the most effective since it has the lowest 
 * [Final optimization results](#Result)
 
 #### Problem
-First, lets measure all working time of my hash table. I will be finding translation of every word in a big text for many times so working time will be recogniziby big and easy and accurate to measure.To profile my programme i will use GNU gprof.
+First, lets measure working time of each function in my hash table and determine which ones are the most time-consuming. I will be finding translation of every word in a big text for many times so working time will be easy and accurate to measure. To profile my programme i will use GNU gprof. On all the following screenshots with GNU gprof results we don't take into account "_mcount_private_" and "__fentry__" functions because they belong only to the profiler, not the hash table.
 
-Working time of each function:
+Working time of each function compiled with -O0:
 
-<img src="Pictures\Gprof1.JPG" width="auto" height="auto">
+<img src="Pictures\Gprof1.1JPG" width="auto" height="auto">
 
-Function name | Working time
------------- | -------------
-Hash | 12.4 sec
-Find | 2.4 sec
-All Table | 15.4 sec
-
-As we can see, the most of the working time take Hash(80%) and Find(15%) functions. In total they take 95% of all working time!.
-So we will optimise these functions. 
+As we can see, the most of the working time take Hash fucntion with working time of 8.2 sec and Find function with working time of 7.83 sec. In total they take more than 95% of all working time of my hash table, so we are going to optimize them.
 
 #### Hash
 As we can see from the profile picture above, it takes almoust all of our working time to calculate hash. I will use crc32 intrinsic here.
