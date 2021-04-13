@@ -111,7 +111,13 @@ As we can see, the working speed of our hash function decreased from 8.2 sec to 
 
 #### Find
 
-Now since we optimized the slowest part of our hash table, lets look at function which is the second in speed. After hash is calculated we go down a chain and compare keys in nodes with key to find. In order to make it faster we can store key-strings in avx registers (_m256i_ type in C) (because they can store up to 32 bytes and most of the english words are shorter than 32 symbols). So again we will use intrinsics functions to compare avx registers efficiently.
+Now since we optimized the slowest part of our hash table, lets look at function which is the slowest now. It is find function which can be seen in profile pictures as "Find". In order to speed it up we need to understand how it works. So when we want to find a word we 1)calculate hash of key-word 2)go down a chain which is responsible for that hash value and compare keys in nodes with key to find.\ 
+
+So by making new compare stings function we can achieve greater performances since strcmp is ineffective. 
+Firstly, lets rewrite string compare function using inline asm in C in order to make faster because of less memory accesses.
+
+
+In order to make it faster we can store key-strings in avx registers (_m256i_ type in C) (because they can store up to 32 bytes and most of the english words are shorter than 32 symbols). So again we will use intrinsics functions to compare avx registers efficiently.
 
 Results after implementing _m256i_ are not so optimistic. The decrease in speed can be seen clearly. The work time of Find function increased from 2.4 sec to 12.0 sec:
 
@@ -124,17 +130,20 @@ However, lets try to rewrite strcmp function using inline asm. By using this we 
 So we will leave this Find function as it was before all optimizations.
 
 #### Results
-Let look at working time of all functions with -O3 optimization:
+Lets look at working times of all unoptimized functions with -O3 optimization and fully optimized hash table:
 
-<img src="Pictures\Gprof5(-O3).JPG" width="auto" height="auto">
+<img src="Pictures\Gprof5(-O3).1.JPG" width="auto" height="auto">
 
-It is still significantly lower than with our opimizations:
+As we can see the overall working time of program is 12.1 sec (main function time). 
 
-<img src="Pictures\Gprof2.JPG" width="auto" height="auto">
+<img src="Pictures\Gprof4.1.JPG" width="auto" height="auto">
 
-Furher optimizations are not useful to implement because we increased performances of all the hash table functions and other function in my program are not related to hash table.
+And the total work time of full optimized hash table is 4.8 sec (main function time).
+
+So optimized hash table is 2.5 times faster than an unoptimized table compiled in -O3. Such increase in speed over -O3 can be explained: gcc compiler don't undertstand when to use crc32 intrin function, so we use it as a great advantage.
 
 ### Conclusion
 
-Using all this optimizations i made a hash table that is 3 times faster than -O3.So It is very efficient and can be implemented is your programmes Text me! 
+Using all this optimizations i made a hash table that is 2.5 times faster than the same unoptimized table compiled with -O3. So It is very efficient and can be implemented is your programmes.\
+Text me! 
 https://vk.com/baranov_v_v
