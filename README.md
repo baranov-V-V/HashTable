@@ -105,31 +105,26 @@ As we can see from the profile picture above, Hash function is the slowest one, 
 The picture below shows us new working times of functions in hash table. In this test we implemented new hash function based on crc32 intrinsic which is called "Crc32Optimized".
 The program is compiled with -O1 so that compiler can inline functions for speed.
 
-<img src="Pictures\Gprof2.2JPG" width="auto" height="auto">
+<img src="Pictures\Gprof2.1JPG" width="auto" height="auto">
 
 As we can see, the working speed of our hash function decreased from 8.2 sec to 0.8 sec which means that the acceleration is 10 times.
 
 #### Find
 
-Now since we optimized the slowest part of our hash table, lets look at function which is the slowest now. It is find function which can be seen in profile pictures as "Find". In order to speed it up we need to understand how it works. So when we want to find a word we 1)calculate hash of key-word 2)go down a chain which is responsible for that hash value and compare keys in nodes with key to find.\ 
+Now since we optimized the slowest part of our hash table, lets look at function which is the slowest now. It is find function which can be seen in profile pictures as "Find". In order to speed it up we need to understand how it works. So when we want to find a word we 1)calculate hash of key-word 2)go down a chain which is responsible for that hash value and compare keys in nodes with key to find. 
 
-So by making new compare stings function we can achieve greater performances since strcmp is ineffective. 
+So by making new inline compare stings function we can achieve greater performances since strcmp is ineffective. 
 Firstly, lets rewrite string compare function using inline asm in C in order to make faster because of less memory accesses.
 
+<img src="Pictures\Gprof3.1JPG" width="auto" height="auto">
 
-In order to make it faster we can store key-strings in avx registers (_m256i_ type in C) (because they can store up to 32 bytes and most of the english words are shorter than 32 symbols). So again we will use intrinsics functions to compare avx registers efficiently.
+it gave us slightly better speed: decrease of total work time from 7.4 sec to 5.4 sec. (5.4 sec is the sum of "MyStrCmp" and "Find" functions) 
 
-Results after implementing _m256i_ are not so optimistic. The decrease in speed can be seen clearly. The work time of Find function increased from 2.4 sec to 12.0 sec:
+In order to make it even faster we can store key-strings in avx registers which is _m256i_ type in C. Our key words is less than 32 symbols long so there won't be any problems in storing. So again we will use intrinsics functions to compare avx registers efficiently.
 
-<img src="Pictures\Gprof3.JPG" width="auto" height="auto">
+<img src="Pictures\Gprof4.1JPG" width="auto" height="auto">
 
-However, lets try to rewrite strcmp function using inline asm. By using this we still don't get increase in speed. Find function nowe works for 3.3 sec instead of 2.4 sec:
-
-<img src="Pictures\Gprof6.JPG" width="auto" height="auto">
-
-So we will leave this Find function as it was before all optimizations.
-
-So the
+As we can see now it takes only 3.8 sec instead of 7.4 to find all words. It is the best result that we can get using hard
 
 #### Results
 Lets look at working times of all unoptimized functions with -O3 optimization and fully optimized hash table:
